@@ -44,3 +44,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BO
     });
   };
 });
+
+document.getElementById("tutorialBtn").addEventListener("click", function () {
+  document.querySelector("main").classList.add("hidden");        // Hide form area
+  document.getElementById("tutorialPage").classList.remove("hidden"); // Show tutorial
+});
+
+document.getElementById("backBtn").addEventListener("click", function () {
+  document.querySelector("main").classList.remove("hidden");     // Show form area again
+  document.getElementById("tutorialPage").classList.add("hidden");    // Hide tutorial
+});
