@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roblox Script Generator</title>
+  <title>Script Generator</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <h1>Roblox Script Generator</h1>
-    <form id="scriptForm">
-      <label for="username">Roblox Username</label>
-      <input type="text" id="username" required />
+  <div class="app-wrapper">
+    <div class="card">
+      <h1>🎮 Roblox Script Generator</h1>
+      <form id="scriptForm">
+        <input type="text" id="username" placeholder="Roblox Username" required />
+        <input type="url" id="github" placeholder="GitHub Raw URL" required />
+        <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
+        <button type="submit">✨ Generate Script</button>
+      </form>
 
-      <label for="github">GitHub Raw URL</label>
-      <input type="url" id="github" required placeholder="https://raw.githubusercontent.com/..." />
-
-      <label for="webhook">Discord Webhook URL</label>
-      <input type="url" id="webhook" required placeholder="https://discord.com/api/webhooks/..." />
-
-      <button type="submit">Generate Script</button>
-    </form>
-
-    <div id="output" style="display:none;">
-      <h2>Your Lua Script</h2>
-      <pre id="scriptBox"></pre>
-      <button id="downloadBtn">Download .lua</button>
+      <div id="output" class="output-box hidden">
+        <h2>✅ Your Lua Script</h2>
+        <pre id="scriptBox"></pre>
+        <button id="downloadBtn">⬇ Download .lua</button>
+      </div>
     </div>
   </div>
 
