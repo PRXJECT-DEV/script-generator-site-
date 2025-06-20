@@ -31,6 +31,9 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 form {
@@ -38,37 +41,70 @@ form {
   padding: 30px;
   border-radius: 16px;
   width: 100%;
-  max-width: 400px;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 form input {
   width: 100%;
   padding: 12px;
-  margin-bottom: 15px;
   background: #1f1f1f;
   border: 1px solid #333;
   border-radius: 12px;
   color: #eaeaea;
 }
 
-form button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(to right, #9B5FFF, #BB86FC);
-  border: none;
-  border-radius: 12px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  justify-content: center;
 }
 
-form button:hover {
-  background: linear-gradient(to right, #BB86FC, #9B5FFF);
+/* Make buttons equal width and style */
+.button-group button,
+.button-group .btn {
+  flex: 1;
+  padding: 12px 0;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(270deg, #9B5FFF, #BB86FC, #9B5FFF);
+  background-size: 600% 600%;
+  animation: gradientShift 30s ease infinite;
+  transition: background-position 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect: reverse gradient movement */
+.button-group button:hover,
+.button-group .btn:hover {
+  animation-direction: reverse;
+}
+
+/* Keyframes for slow gradient movement */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .output-card {
@@ -77,7 +113,7 @@ form button:hover {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   animation: fadeIn 0.6s ease;
@@ -118,13 +154,55 @@ form button:hover {
   display: none;
 }
 
+.back-btn {
+  margin: 20px 0 25px 0;
+  font-size: 1.25rem;
+  padding: 14px 24px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(270deg, #9B5FFF, #BB86FC, #9B5FFF);
+  background-size: 600% 600%;
+  animation: gradientShift 30s ease infinite;
+  color: white;
+  font-weight: 700;
+  transition: background-position 0.3s ease;
+  display: inline-block;
+}
+
+.back-btn:hover {
+  animation-direction: reverse;
+}
+
+/* Tutorial content styling */
+.tutorial-content {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 10px;
+  color: #ddd;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.tutorial-content pre {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin-bottom: 15px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.tutorial-content hr {
+  border: 1px solid #555;
+  margin: 15px 0;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-.fadeIn {
-  animation: fadeIn 0.4s ease forwards;
 }
 
 @keyframes fadeOut {
@@ -132,10 +210,10 @@ form button:hover {
   to { opacity: 0; transform: translateY(10px); }
 }
 
-.fadeOut {
-  animation: fadeOut 0.4s ease forwards;
+.fadeIn {
+  animation: fadeIn 0.4s ease forwards;
 }
 
-#backBtn:hover {
-  background: linear-gradient(to right, #BB86FC, #9B5FFF);
+.fadeOut {
+  animation: fadeOut 0.4s ease forwards;
 }
