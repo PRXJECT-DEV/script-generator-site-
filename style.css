@@ -10,7 +10,6 @@ body, html {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
   color: #f0f0f0;
-  overflow: hidden; /* Prevent page scroll when tutorial is open */
 }
 
 .app {
@@ -37,7 +36,6 @@ main {
   width: 100%;
 }
 
-/* Form styles */
 form {
   background: rgba(255, 255, 255, 0.05);
   padding: 30px;
@@ -52,7 +50,6 @@ form {
   flex-direction: column;
 }
 
-/* Inputs */
 form input {
   width: 100%;
   padding: 12px;
@@ -64,7 +61,6 @@ form input {
   font-size: 1rem;
 }
 
-/* Button group stacked vertically */
 .button-group {
   display: flex;
   flex-direction: column;
@@ -91,7 +87,6 @@ form input {
   animation-direction: reverse;
 }
 
-/* Back button bigger and animated same as others */
 .back-btn {
   font-size: 1.3rem;
   padding: 16px 0;
@@ -116,7 +111,6 @@ form input {
   100% { background-position: 100% 50%; }
 }
 
-/* Output card styling */
 .output-card {
   margin-top: 30px;
   padding: 20px;
@@ -139,7 +133,6 @@ form input {
   font-size: 0.95rem;
 }
 
-/* Buttons for copy/download */
 .actions {
   display: flex;
   justify-content: space-between;
@@ -166,24 +159,13 @@ form input {
   display: none;
 }
 
-/* Tutorial Section styling */
-#tutorialPage {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(15,15,15,0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  z-index: 9999;
-}
-
+/* Tutorial content styling */
 .tutorial-content {
   max-width: 400px;
-  width: 100%;
-  max-height: 70vh;
-  overflow-y: auto;
+  margin: 0 auto;
   padding: 20px;
+  overflow-y: auto;
+  max-height: 70vh;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -192,22 +174,6 @@ form input {
   line-height: 1.5;
   white-space: pre-wrap;
   user-select: text;
-  scrollbar-width: thin;
-  scrollbar-color: #9B5FFF transparent;
-}
-
-/* Custom scrollbar for Webkit */
-.tutorial-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.tutorial-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.tutorial-content::-webkit-scrollbar-thumb {
-  background-color: #9B5FFF;
-  border-radius: 8px;
 }
 
 .tutorial-content h2,
