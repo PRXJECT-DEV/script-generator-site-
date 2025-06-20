@@ -217,3 +217,75 @@ form input {
 .fadeOut {
   animation: fadeOut 0.4s ease forwards;
 }
+
+/* --- existing styles above unchanged --- */
+
+/* Container max width for PC */
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+  main {
+    max-width: 350px; /* smaller width for phones */
+    padding: 10px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  form input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .button-group button,
+  .button-group .btn {
+    font-size: 0.9rem;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
+
+  .back-btn {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 14px;
+  }
+
+  .tutorial-content {
+    font-size: 0.9rem;
+    padding: 15px;
+    max-height: 500px;
+  }
+
+  .output-card {
+    max-width: 350px;
+    padding: 15px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 481px) and (max-width: 900px) {
+  main {
+    max-width: 480px;
+  }
+
+  form input {
+    font-size: 1rem;
+  }
+
+  .button-group button,
+  .button-group .btn {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  .back-btn {
+    font-size: 1.15rem;
+    padding: 13px 22px;
+  }
+}
