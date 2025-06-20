@@ -1,25 +1,73 @@
 body {
-  background-color: #121212;
-  color: #f0f0f0;
-  font-family: sans-serif;
-  padding: 20px;
+  background-color: #0f0f0f;
+  font-family: 'Segoe UI', sans-serif;
+  color: #eaeaea;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
+.app-wrapper {
+  padding: 30px;
 }
 
-input, button {
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 420px;
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-pre {
-  background: #1e1e1e;
-  padding: 15px;
-  border-radius: 5px;
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: #eaeaea;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #9B5FFF, #BB86FC);
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #BB86FC, #9B5FFF);
+}
+
+.output-box {
+  margin-top: 20px;
+}
+
+.output-box pre {
+  background: #1a1a1a;
+  padding: 16px;
+  border-radius: 12px;
   overflow-x: auto;
   white-space: pre-wrap;
+}
+
+.hidden {
+  display: none;
 }
