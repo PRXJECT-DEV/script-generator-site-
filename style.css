@@ -1,46 +1,61 @@
-body {
-  background-color: #0f0f0f;
-  font-family: 'Segoe UI', sans-serif;
-  color: #eaeaea;
+/* Global reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #f0f0f0;
+}
+
+.app {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   min-height: 100vh;
+  padding: 20px;
 }
 
-.app-wrapper {
-  padding: 30px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 30px;
-  max-width: 420px;
-  width: 100%;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-h1, h2 {
+header, footer {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  opacity: 0.8;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
 }
 
 form input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
-  background: #1a1a1a;
+  background: #1f1f1f;
   border: 1px solid #333;
   border-radius: 12px;
   color: #eaeaea;
 }
 
-button {
+form button {
   width: 100%;
   padding: 12px;
   background: linear-gradient(to right, #9B5FFF, #BB86FC);
@@ -52,22 +67,58 @@ button {
   transition: background 0.3s ease;
 }
 
-button:hover {
+form button:hover {
   background: linear-gradient(to right, #BB86FC, #9B5FFF);
 }
 
-.output-box {
-  margin-top: 20px;
+.output-card {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 0.6s ease;
 }
 
-.output-box pre {
-  background: #1a1a1a;
+.output-card pre {
+  background: #1c1c1c;
   padding: 16px;
   border-radius: 12px;
-  overflow-x: auto;
   white-space: pre-wrap;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #282828;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  background: #333;
 }
 
 .hidden {
   display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
