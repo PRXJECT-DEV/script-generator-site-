@@ -13,18 +13,34 @@
     </header>
 
     <main>
-      <!-- Tutorial Section (initially hidden) -->
+  <!-- Script Generator Form -->
+  <form id="scriptForm">
+    <input type="text" id="username" placeholder="Roblox Username" required />
+    <input type="url" id="github" placeholder="GitHub Raw URL" required />
+    <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
+    <button type="submit">✨ Generate Script</button>
+
+    <!-- ✅ Add the Tutorial Button Here -->
+    <button id="tutorialBtn" type="button">📘 Tutorial</button>
+  </form>
+
+  <!-- Script Output Section -->
+  <section id="output" class="output-card hidden">
+    <h2>✅ Your Lua Script</h2>
+    <pre id="scriptBox"></pre>
+    <div class="actions">
+      <button id="copyBtn">📋 Copy</button>
+      <button id="downloadBtn">⬇ Download</button>
+    </div>
+  </section>
+</main>
+
+<!-- ✅ Tutorial Section Should Be Outside <main> -->
 <section id="tutorialPage" class="hidden">
   <h2>📘 Script Generator Tutorial</h2>
   <p>Welcome! This is where we’ll explain how to use the app step-by-step.</p>
   <button id="backBtn">🔙 Back</button>
 </section>
-      <form id="scriptForm">
-  <input type="text" id="username" placeholder="Roblox Username" required />
-  <input type="url" id="github" placeholder="GitHub Raw URL" required />
-  <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
-  <button type="submit">✨ Generate Script</button>
-</form>
 
       <section id="output" class="output-card hidden">
         <h2>✅ Your Lua Script</h2>
