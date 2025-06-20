@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roblox Script Generator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Roblox Script Generator</h1>
+    <form id="scriptForm">
+      <label for="username">Roblox Username</label>
+      <input type="text" id="username" required />
+
+      <label for="github">GitHub Raw URL</label>
+      <input type="url" id="github" required placeholder="https://raw.githubusercontent.com/..." />
+
+      <label for="webhook">Discord Webhook URL</label>
+      <input type="url" id="webhook" required placeholder="https://discord.com/api/webhooks/..." />
+
+      <button type="submit">Generate Script</button>
+    </form>
+
+    <div id="output" style="display:none;">
+      <h2>Your Lua Script</h2>
+      <pre id="scriptBox"></pre>
+      <button id="downloadBtn">Download .lua</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
