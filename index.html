@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Script Generator</title>
+  <title>Script Generator App</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="app-wrapper">
-    <div class="card">
-      <h1>🎮 Roblox Script Generator</h1>
+  <div class="app">
+    <header>
+      <h1>🎮 Roblox Script Builder</h1>
+    </header>
+
+    <main>
       <form id="scriptForm">
         <input type="text" id="username" placeholder="Roblox Username" required />
         <input type="url" id="github" placeholder="GitHub Raw URL" required />
@@ -17,12 +20,19 @@
         <button type="submit">✨ Generate Script</button>
       </form>
 
-      <div id="output" class="output-box hidden">
+      <section id="output" class="output-card hidden">
         <h2>✅ Your Lua Script</h2>
         <pre id="scriptBox"></pre>
-        <button id="downloadBtn">⬇ Download .lua</button>
-      </div>
-    </div>
+        <div class="actions">
+          <button id="copyBtn">📋 Copy</button>
+          <button id="downloadBtn">⬇ Download</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made with ❤️ for the Roblox community</p>
+    </footer>
   </div>
 
   <script src="script.js"></script>
