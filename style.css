@@ -31,9 +31,9 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  width: 100%;
 }
 
 form {
@@ -41,70 +41,74 @@ form {
   padding: 30px;
   border-radius: 16px;
   width: 100%;
+  max-width: 400px;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   transition: 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 form input {
   width: 100%;
   padding: 12px;
+  margin-bottom: 15px;
   background: #1f1f1f;
   border: 1px solid #333;
   border-radius: 12px;
   color: #eaeaea;
+  font-size: 1rem;
 }
 
 .button-group {
   display: flex;
+  flex-direction: column;
   gap: 15px;
-  margin-top: 15px;
-  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
 }
 
-/* Make buttons equal width and style */
-.button-group button,
-.button-group .btn {
-  flex: 1;
-  padding: 12px 0;
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  color: white;
+.button-group button {
   background: linear-gradient(270deg, #9B5FFF, #BB86FC, #9B5FFF);
   background-size: 600% 600%;
-  animation: gradientShift 30s ease infinite;
-  transition: background-position 0.3s ease;
-  text-align: center;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  transition: background-position 15s ease infinite;
+  animation: backgroundMove 60s linear infinite;
 }
 
-/* Hover effect: reverse gradient movement */
-.button-group button:hover,
-.button-group .btn:hover {
+.button-group button:hover {
   animation-direction: reverse;
 }
 
-/* Keyframes for slow gradient movement */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.back-btn {
+  font-size: 1.3rem;
+  padding: 16px 0;
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 18px;
+  background: linear-gradient(270deg, #9B5FFF, #BB86FC, #9B5FFF);
+  background-size: 600% 600%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  animation: backgroundMove 60s linear infinite;
+  transition: background-position 15s ease infinite;
+}
+
+.back-btn:hover {
+  animation-direction: reverse;
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .output-card {
@@ -113,7 +117,7 @@ form input {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   animation: fadeIn 0.6s ease;
@@ -126,6 +130,7 @@ form input {
   white-space: pre-wrap;
   overflow-x: auto;
   margin-bottom: 10px;
+  font-size: 0.95rem;
 }
 
 .actions {
@@ -154,138 +159,62 @@ form input {
   display: none;
 }
 
-.back-btn {
-  margin: 20px 0 25px 0;
-  font-size: 1.25rem;
-  padding: 14px 24px;
-  border-radius: 16px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(270deg, #9B5FFF, #BB86FC, #9B5FFF);
-  background-size: 600% 600%;
-  animation: gradientShift 30s ease infinite;
-  color: white;
-  font-weight: 700;
-  transition: background-position 0.3s ease;
-  display: inline-block;
-}
-
-.back-btn:hover {
-  animation-direction: reverse;
-}
-
 /* Tutorial content styling */
 .tutorial-content {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
+  max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
-  margin-top: 10px;
-  color: #ddd;
-  max-height: 600px;
   overflow-y: auto;
+  max-height: 70vh;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: #f0f0f0;
+  font-size: 1rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  user-select: text;
+}
+
+.tutorial-content h2,
+.tutorial-content h3,
+.tutorial-content h4 {
+  margin-bottom: 12px;
+}
+
+.tutorial-content p, .tutorial-content ul {
+  margin-bottom: 12px;
+}
+
+.tutorial-content ul {
+  list-style: disc inside;
 }
 
 .tutorial-content pre {
-  background: #222;
-  padding: 15px;
-  border-radius: 10px;
+  background: #121212;
+  padding: 12px;
+  border-radius: 12px;
   overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 15px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
 }
 
-.tutorial-content hr {
-  border: 1px solid #555;
-  margin: 15px 0;
+.tutorial-content a {
+  color: #bb86fc;
+  text-decoration: underline;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(10px); }
-}
-
-.fadeIn {
-  animation: fadeIn 0.4s ease forwards;
-}
-
-.fadeOut {
-  animation: fadeOut 0.4s ease forwards;
-}
-
-/* --- existing styles above unchanged --- */
-
-/* Container max width for PC */
-main {
-  max-width: 600px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/* Responsive for mobile */
+/* Responsive adjustments */
 @media (max-width: 480px) {
-  main {
-    max-width: 350px; /* smaller width for phones */
-    padding: 10px;
+  .tutorial-content {
+    max-width: 320px;
+    padding: 15px;
+    font-size: 0.9rem;
   }
 
   form {
     padding: 20px;
-  }
-
-  form input {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-
-  .button-group button,
-  .button-group .btn {
-    font-size: 0.9rem;
-    padding: 10px 0;
-    border-radius: 10px;
-  }
-
-  .back-btn {
-    font-size: 1.1rem;
-    padding: 12px 20px;
-    border-radius: 14px;
-  }
-
-  .tutorial-content {
-    font-size: 0.9rem;
-    padding: 15px;
-    max-height: 500px;
-  }
-
-  .output-card {
-    max-width: 350px;
-    padding: 15px;
-  }
-}
-
-/* Medium screens (tablets) */
-@media (min-width: 481px) and (max-width: 900px) {
-  main {
-    max-width: 480px;
-  }
-
-  form input {
-    font-size: 1rem;
-  }
-
-  .button-group button,
-  .button-group .btn {
-    font-size: 1rem;
-    padding: 12px 0;
-  }
-
-  .back-btn {
-    font-size: 1.15rem;
-    padding: 13px 22px;
   }
 }
