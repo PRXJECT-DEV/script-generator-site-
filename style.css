@@ -1,101 +1,63 @@
-/* Base Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* General Layout */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #121212;
-  color: #fff;
+.help-card {
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
   padding: 20px;
+  max-width: 600px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-.app {
-  max-width: 500px;
-  margin: auto;
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
-/* Header */
-header h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Form / Inputs */
-form input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+.toggle-help {
+  background: #282828;
   border: none;
-  border-radius: 8px;
-  background: #2c2c2c;
-  color: white;
-}
-
-button {
-  background-color: #00c471;
-  border: none;
-  padding: 10px 15px;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-button:hover {
-  background-color: #00a45a;
-}
-
-/* Output */
-.output-card, .help-card {
-  background: #2a2a2a;
-  padding: 15px;
   border-radius: 10px;
-  margin-top: 20px;
-}
-
-/* Help Navigation */
-.toggle-help, .back-button {
-  margin-top: 15px;
-  background-color: #4a90e2;
-}
-
-.back-button {
-  display: block;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
   margin-bottom: 15px;
 }
 
-/* Page Animation Logic */
-.page {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+#helpContent {
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-.page.active {
-  display: block;
-  opacity: 1;
+#helpContent h3, #helpContent h4 {
+  margin-top: 20px;
+  color: #BB86FC;
 }
 
-/* Responsive for iPhone */
-@media (max-width: 600px) {
-  .app {
-    padding: 15px;
-  }
+#helpContent pre {
+  background: #1c1c1c;
+  color: #eaeaea;
+  padding: 12px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 14px;
+}
 
-  form input, button {
-    font-size: 16px;
-  }
+#helpContent ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
 
-  pre {
-    font-size: 13px;
-    overflow-x: auto;
-  }
+#helpContent code {
+  background: #292929;
+  padding: 2px 5px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#helpContent a {
+  color: #9B5FFF;
+  text-decoration: underline;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 15px 0;
 }
