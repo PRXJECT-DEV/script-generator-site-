@@ -25,11 +25,9 @@ Config = {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BOT-SCRIPT/refs/heads/main/Main%20Script"))()
 `.trim();
 
-  // Show script
   document.getElementById("scriptBox").textContent = luaScript;
-  document.getElementById("output").style.display = "block";
+  document.getElementById("output").classList.remove("hidden");
 
-  // Download on click
   document.getElementById("downloadBtn").onclick = () => {
     const blob = new Blob([luaScript], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
@@ -38,5 +36,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BO
     a.download = "generated_script.lua";
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  document.getElementById("copyBtn").onclick = () => {
+    navigator.clipboard.writeText(luaScript).then(() => {
+      alert("✅ Script copied to clipboard!");
+    });
   };
 });
