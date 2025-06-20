@@ -1,188 +1,101 @@
-/* Global reset */
+/* Base Reset */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
+/* General Layout */
+body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-  color: #f0f0f0;
+  background: #121212;
+  color: #fff;
+  padding: 20px;
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  max-width: 500px;
+  margin: auto;
+  background: #1e1e1e;
   padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-header, footer {
+/* Header */
+header h1 {
   text-align: center;
-  margin: 20px 0;
-  opacity: 0.8;
+  margin-bottom: 20px;
 }
 
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-form {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
-  border-radius: 16px;
+/* Form / Inputs */
+form input {
   width: 100%;
-  max-width: 400px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: #2c2c2c;
+  color: white;
+}
+
+button {
+  background-color: #00c471;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 
-form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  background: #1f1f1f;
-  border: 1px solid #333;
-  border-radius: 12px;
-  color: #eaeaea;
+button:hover {
+  background-color: #00a45a;
 }
 
-form button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(to right, #9B5FFF, #BB86FC);
-  border: none;
-  border-radius: 12px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-form button:hover {
-  background: linear-gradient(to right, #BB86FC, #9B5FFF);
-}
-
-.output-card {
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  width: 100%;
-  max-width: 500px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  animation: fadeIn 0.6s ease;
-}
-
-.output-card pre {
-  background: #1c1c1c;
-  padding: 16px;
-  border-radius: 12px;
-  white-space: pre-wrap;
-  overflow-x: auto;
-  margin-bottom: 10px;
-}
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.actions button {
-  flex: 1;
-  padding: 10px;
+/* Output */
+.output-card, .help-card {
+  background: #2a2a2a;
+  padding: 15px;
   border-radius: 10px;
-  border: none;
-  background: #282828;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.actions button:hover {
-  background: #333;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.help-card {
-  margin-top: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 20px;
-  max-width: 600px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-
-.toggle-help {
-  background: #282828;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-weight: 600;
-  padding: 12px;
-  width: 100%;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-
-#helpContent {
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-#helpContent h3, #helpContent h4 {
   margin-top: 20px;
-  color: #BB86FC;
 }
 
-#helpContent pre {
-  background: #1c1c1c;
-  color: #eaeaea;
-  padding: 12px;
-  border-radius: 12px;
-  overflow-x: auto;
-  font-size: 14px;
+/* Help Navigation */
+.toggle-help, .back-button {
+  margin-top: 15px;
+  background-color: #4a90e2;
 }
 
-#helpContent ul {
-  padding-left: 20px;
-  margin: 10px 0;
+.back-button {
+  display: block;
+  margin-bottom: 15px;
 }
 
-#helpContent code {
-  background: #292929;
-  padding: 2px 5px;
-  border-radius: 6px;
-  font-size: 14px;
+/* Page Animation Logic */
+.page {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-#helpContent a {
-  color: #9B5FFF;
-  text-decoration: underline;
+.page.active {
+  display: block;
+  opacity: 1;
 }
 
-hr {
-  border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 15px 0;
+/* Responsive for iPhone */
+@media (max-width: 600px) {
+  .app {
+    padding: 15px;
+  }
+
+  form input, button {
+    font-size: 16px;
+  }
+
+  pre {
+    font-size: 13px;
+    overflow-x: auto;
+  }
 }
