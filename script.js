@@ -1,4 +1,36 @@
-document.getElementById("scriptForm").addEventListener("submit", function (e) {
+const scriptForm = document.getElementById("scriptForm");
+const outputSection = document.getElementById("output");
+const scriptBox = document.getElementById("scriptBox");
+const copyBtn = document.getElementById("copyBtn");
+const downloadBtn = document.getElementById("downloadBtn");
+
+const tutorialBtn = document.getElementById("tutorialBtn");
+const backBtn = document.getElementById("backBtn");
+
+const tutorialPage = document.getElementById("tutorialPage");
+const mainContent = document.querySelector("main");
+
+// Helper to add fadeIn animation and remove it after completion
+function fadeIn(element) {
+  element.classList.add("fadeIn");
+  element.addEventListener("animationend", function handler() {
+    element.classList.remove("fadeIn");
+    element.removeEventListener("animationend", handler);
+  });
+}
+
+// Helper to fadeOut then run callback after animation completes
+function fadeOut(element, callback) {
+  element.classList.add("fadeOut");
+  element.addEventListener("animationend", function handler() {
+    element.classList.remove("fadeOut");
+    element.removeEventListener("animationend", handler);
+    callback();
+  });
+}
+
+// Generate script form submission
+scriptForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const username = document.getElementById("username").value.trim();
@@ -25,10 +57,11 @@ Config = {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BOT-SCRIPT/refs/heads/main/Main%20Script"))()
 `.trim();
 
-  document.getElementById("scriptBox").textContent = luaScript;
-  document.getElementById("output").classList.remove("hidden");
+  scriptBox.textContent = luaScript;
+  outputSection.classList.remove("hidden");
+  fadeIn(outputSection);
 
-  document.getElementById("downloadBtn").onclick = () => {
+  downloadBtn.onclick = () => {
     const blob = new Blob([luaScript], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -38,19 +71,27 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/PRXJECT-DEV/GLOBAL-BO
     URL.revokeObjectURL(url);
   };
 
-  document.getElementById("copyBtn").onclick = () => {
+  copyBtn.onclick = () => {
     navigator.clipboard.writeText(luaScript).then(() => {
       alert("✅ Script copied to clipboard!");
     });
   };
 });
 
-document.getElementById("tutorialBtn").addEventListener("click", function () {
-  document.querySelector("main").classList.add("hidden");        // Hide form area
-  document.getElementById("tutorialPage").classList.remove("hidden"); // Show tutorial
+// Tutorial button click — show tutorial with fade animation
+tutorialBtn.addEventListener("click", () => {
+  fadeOut(mainContent, () => {
+    mainContent.classList.add("hidden");
+    tutorialPage.classList.remove("hidden");
+    fadeIn(tutorialPage);
+  });
 });
 
-document.getElementById("backBtn").addEventListener("click", function () {
-  document.querySelector("main").classList.remove("hidden");     // Show form area again
-  document.getElementById("tutorialPage").classList.add("hidden");    // Hide tutorial
+// Back button click — show main content with fade animation
+backBtn.addEventListener("click", () => {
+  fadeOut(tutorialPage, () => {
+    tutorialPage.classList.add("hidden");
+    mainContent.classList.remove("hidden");
+    fadeIn(mainContent);
+  });
 });
